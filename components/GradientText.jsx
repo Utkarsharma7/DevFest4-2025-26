@@ -32,7 +32,7 @@ export default function GradientText({
         </div>
       )}
       <div
-        className="inline-block relative z-2 text-transparent bg-cover animate-gradient"
+        className="inline-block relative z-2 text-transparent bg-cover animate-gradient leading-none py-4"
         style={{
           ...gradientStyle,
           backgroundClip: 'text',
