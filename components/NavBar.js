@@ -1,26 +1,48 @@
 "use client"
 import Image from "next/image"
+import { Audiowide } from "next/font/google";
+
+const audioWide = Audiowide({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const NavBar = () => {
   return (
-      <div className="flex p-7 justify-between items-center w-full z-10 fixed top-0 backdrop-blur-md bg-black/30">
-        <div className="flex gap-2 items-center">
-          <Image src="/devsoc_logo.svg" width={50} height={20} />
-          <Image src="/devsoc.svg" width={175} height={80} alt="devsoc" />
+      <nav className={`
+        fixed top-0
+        flex w-screen
+        justify-between items-center
+        px-8 py-4
+        backdrop-blur-md
+        bg-white/10
+        border-b border-white/20
+        shadow-lg shadow-black/20
+        ${audioWide.className}
+      `}>
+
+        <div className="flex items-center gap-3">
+          <Image src="/devsoc_logo.svg" width={40} height={20} alt="logo"/>
+          <Image src="/devsoc.svg" width={140} height={80} alt="devsoc"/>
         </div>
-        <div>
-          <ul className="flex gap-10 text-md">
-            <li>HOME</li>
-            <li>TIMELINE</li>
-            <li>PRIZES</li>
-            <li>HACKATHONS</li>
-            <li>SPONSORS</li>
-            <li>ABOUT</li>
-            <li>TEAM</li>
-            <li>FAQs</li>
-          </ul>
-        </div>
-      </div>
+
+        <ul className="flex gap-8 text-[0.75rem] font-medium text-white/90">
+          {["HOME","TIMELINE","PRIZES","HACKATHONS","SPONSORS","ABOUT","TEAM","FAQs"]
+            .map((item) => (
+              <li
+                key={item}
+                className="
+                  cursor-pointer 
+                  hover:text-white 
+                  hover:scale-105 
+                  transition-all duration-150
+                "
+              >
+                {item}
+              </li>
+            ))}
+        </ul>
+      </nav>
   )
 }
 

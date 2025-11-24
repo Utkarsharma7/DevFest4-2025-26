@@ -1,10 +1,7 @@
-"use client"
-
 import { useRef, useEffect } from 'react';
 
 const LetterGlitch = ({
   glitchColors = ['#2b4539', '#61dca3', '#61b3dc'],
-  className = '',
   glitchSpeed = 50,
   centerVignette = false,
   outerVignette = true,
@@ -200,45 +197,17 @@ const LetterGlitch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
-  const containerStyle = {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#000000',
-    overflow: 'hidden'
-  };
-
-  const canvasStyle = {
-    display: 'block',
-    width: '100%',
-    height: '100%'
-  };
-
-  const outerVignetteStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    pointerEvents: 'none',
-    background: 'radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)'
-  };
-
-  const centerVignetteStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    pointerEvents: 'none',
-    background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)'
-  };
-
   return (
-    <div style={containerStyle} className={className}>
-      <canvas ref={canvasRef} style={canvasStyle} />
-      {outerVignette && <div style={outerVignetteStyle}></div>}
-      {centerVignette && <div style={centerVignetteStyle}></div>}
+    <div className="relative w-full h-full bg-black overflow-hidden">
+      <canvas ref={canvasRef} className="block w-full h-full" />
+      {outerVignette && (
+        <div
+          className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0)_60%,_rgba(0,0,0,1)_100%)]"></div>
+      )}
+      {centerVignette && (
+        <div
+          className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0.8)_0%,_rgba(0,0,0,0)_60%)]"></div>
+      )}
     </div>
   );
 };
