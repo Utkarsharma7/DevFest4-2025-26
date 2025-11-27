@@ -59,8 +59,8 @@ const NavBar = () => {
                            hover:shadow-[0_0_18px_rgba(64,255,170,0.55)]
                            after:content-['']
                            after:absolute after:left-0 after:-bottom-1 
-                           after:h-[2px] after:w-0 
-                           after:bg-gradient-to-r after:from-[#40ffaa] after:to-[#4079ff]
+                           after:h-0.5 after:w-0 
+                           after:bg-linear-to-r after:from-[#40ffaa] after:to-[#4079ff]
                            after:transition-all after:duration-200
                            hover:after:w-full"
               >
