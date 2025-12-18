@@ -6,6 +6,7 @@ import LetterGlitch from "@/components/LetterGlitch";
 import FuzzyText from "@/components/FuzzyText";
 import GradientText from "@/components/GradientText";
 import CursorAura from "@/components/CursorAura";
+import FAQs from "@/components/FAQs";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -130,8 +131,27 @@ export default function Home() {
     <section id="team" className="h-screen flex items-center justify-center">
       <p className="text-white/60 text-xl">Team section coming soon.</p>
     </section>
-    <section id="faqs" className="h-screen flex items-center justify-center mb-32">
-      <p className="text-white/60 text-xl">FAQs section coming soon.</p>
+    {/* FAQs section */}
+    <section id="faqs" className="relative min-h-[200vh] flex items-start justify-center px-2 md:px-4 py-16 mb-32">
+      {/* Glitchy background - covers full section height */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full -z-20">
+        <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={false}
+          smooth={true}
+        />
+      </div>
+
+      {/* Cursor/touch aura */}
+      <CursorAura />
+
+      {/* FAQs content in container */}
+      <div className="w-[98%] max-w-[1800px] mx-auto z-10 px-2 md:px-4 mt-8">
+        <div className="bg-black/20 backdrop-blur-xl border border-white/30 rounded-2xl p-6 md:p-8 lg:p-10 shadow-2xl">
+          <FAQs />
+        </div>
+      </div>
     </section>
     </main>
   );
